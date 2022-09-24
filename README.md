@@ -17,7 +17,7 @@ e.g. Issuer is a KYC processor, Alice and Bob
                  /--A--< Alice Derived Public key 1 , Claim UK
          /--AB--|     
         |        \--B--< Alice Derived Public key 2 , Claim UK
---ABCD--|
+ABCD
         |        /--C--< Bob Derived Public key 1, Claim (US)
          \--CD--|
                  \--D--< Alice Derived Public key 3, Claim (UK)
