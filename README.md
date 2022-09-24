@@ -3,27 +3,48 @@
 by  [Frédéric Martin](mailto:frederic.martin@mydid.com), myDID SA  
 and [Imad El Aouny](mailto:imad.elaouny@mydid.com), myDID SA
 
+RWOT XI, 2022, September
 
-Since DID are usually exposed to credentails verifiers and even simple authentication
+## DID Privacy concerns 
 
-e.g. Issuer is a KYC processor checking citizenship 
+We developed a DID+VC Wallet following W3C specifications and were not fully satisfied how Identifiers are used by default everywhere all the time and how easily different actors like credential verifiers (or even websites only using authentication) can match / correlate / link / trace users between services.
+
+did:OWND:ID4242 presented a verifiable credential about his age on nop.com in order to gamble
+did:OWND:ID4242 presented a verifiable credential about his diploma on qrs.com site in order to postulate
+did:OWND:ID4242 presented a verifiable credential about his address on tuv.org in order to participate to a local party
+did:OWND:ID4242 only used his wallet to be authenticated, no credential, during a simple registration on a xyz.com metaverse where he chose a fancy avatar.
+Websites owners or even website hackers can accumulate data to correlate users identity.
+
+As a wallet solution provider we can ease and incite users to create 
+
+For each user, DID (identifier) is a central information used everywhere.
+
+Verifiable Issuer, 
+
+Since DID are usually exposed to credentials verifiers and even simple authentication
+
+e.g. Issuer is a KYC processor, given credential is user citizenship 
+
+
+
 Alice is UK, Bob iS US, Carol is AU
 ```
-                            ┌--A--< Alice Derived Public key 1 , Claim (UK)
-                     ┌--AB--│     
-                     │      └--B--< Alice Derived Public key 2 , Claim (UK)
-            ┌--ABCD--┤  
-            │        │      ┌--C--< Bob Derived Public key 1 , Claim (US)
+                            ┌──A──< Alice Derived Public key 1, Claim (UK)
+                     ┌──AB──┤     
+                     │      └──B──< Alice Derived Public key 2, Claim (UK)
+            ┌──ABCD──┤  
+            │        │      ┌──C──< Bob Derived Public key 1, Claim (US)
             │        └--CD--│     
-            │               └--D--< Alice Derived Public key 3 , Claim (UK)
---ABCDEFGH--┤  
-            │               ┌--E--< Carol Derived Public key 1 , Claim (AU)
-            │        ┌--EF--│     
-            │        │      └--F--< Bob Derived Public key 2 , Claim (US)
-            └--EFGH--┤  
-                     │      ┌--G--< Carol Derived Public key 2 , Claim (AU)
-                     └--GH--│     
-                            └--H--< Alice Derived Public key 4 , Claim (UK)
+            │               └──D──< Alice Derived Public key 3, Claim (UK)
+──ABCDEFGH──┤  
+            │               ┌──E──< Carol Derived Public key 1, Claim (AU)
+            │        ┌──EF──│     
+            │        │      └──F──< Bob Derived Public key 2, Claim (US)
+            └──EFGH──┤  
+                     │      ┌──G──< Carol Derived Public key 2, Claim (AU)
+                     └──GH──│     
+                            └──H──< Alice Derived Public key 4, Claim (UK)
+
 ```
   
 Proponents (such as myself) of zero-knowledge proofs and their use with
