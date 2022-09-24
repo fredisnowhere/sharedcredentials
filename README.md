@@ -7,21 +7,21 @@ Since DID are usually exposed to credentails verifiers and even simple authentic
 
 e.g. Issuer is a KYC processor, Alice and Bob
 
-                                ┌--A-- Alice Derived Public key 1 , Claim UK
+                                ┌--A--< Alice Derived Public key 1 , Claim UK
                          ┌--AB--│     
-                         │      └--B-- Alice Derived Public key 2 , Claim UK
+                         │      └--B--< Alice Derived Public key 2 , Claim UK
                 ┌--ABCD--┤  
-                │        │      ┌--C-- Alice Derived Public key 1 , Claim UK
+                │        │      ┌--C--< Bob Derived Public key 1 , Claim UK
                 │        └--CD--│     
-                │               └--D-- Alice Derived Public key 2 , Claim UK
-    --ABCDEDFG--┤  
-                                    ┌--A-- Alice Derived Public key 1 , Claim UK
-                             ┌--AB--│     
-                             │      └--B-- Alice Derived Public key 2 , Claim UK
-                     --ABCD--┤  
-                             │      ┌--C-- Alice Derived Public key 1 , Claim UK
-                             └--CD--│     
-                                    └--D-- Alice Derived Public key 2 , Claim UK
+                │               └--D--< Alice Derived Public key 3 , Claim UK
+    --ABCDEFGH--┤  
+                │               ┌--E--< Carol Derived Public key 1 , Claim UK
+                │        ┌--EF--│     
+                │        │      └--F--< Bob Derived Public key 2 , Claim UK
+                └--EFGH--┤  
+                         │      ┌--G--< Carol Derived Public key 2 , Claim UK
+                         └--GF--│     
+                                └--H--< Alice Derived Public key 4 , Claim UK
   
 Proponents (such as myself) of zero-knowledge proofs and their use with
 Verifiable Credentials often assert that the additional complications introduced
