@@ -13,7 +13,7 @@ e.g. Issuer is a KYC processor, Alice and Bob
 --ABCD--|        
         |        /--C--< [ Bob Derived Public key 1, Claim (US) ]
          \--CD--|
-                 \--D--< [ Alice Derived Public key 3, Claim (UK) ]
+                 \--D--< [ Alice Derived Public key 3, Claim (UK) ] 
 
 Proponents (such as myself) of zero-knowledge proofs and their use with
 Verifiable Credentials often assert that the additional complications introduced
