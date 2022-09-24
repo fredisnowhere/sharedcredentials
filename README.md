@@ -7,11 +7,10 @@ Since DID are usually exposed to credentails verifiers and even simple authentic
 
 e.g. Issuer is a KYC processor, Alice and Bob
 
-
                ┌ --A-- Alice Derived Public key 1 , Claim UK
         ┌--AB--│     
         │      └--B-- Alice Derived Public key 2 , Claim UK
-        ABCD │  
+    ABCD │  
         │      ┌ --A-- Alice Derived Public key 1 , Claim UK
         └--AB--│     
                └--B-- Alice Derived Public key 2 , Claim UK
