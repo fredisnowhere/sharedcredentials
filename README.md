@@ -6,13 +6,13 @@ and [Imad ElAouny](mailto:imad.elaouny@mydid.com), myDID SA
 Since DID are usually exposed to credentails verifiers and even simple authentication
 
 
-#               /-A
-#          /---|
-#     /---|     \-B
-#    |    |
-#----|     \-C
-#    |
-#     \-D
+               /-A
+          /---|
+     /---|     \-B
+    |    |
+----|     \-C
+    |
+     \-D
 
 Proponents (such as myself) of zero-knowledge proofs and their use with
 Verifiable Credentials often assert that the additional complications introduced
