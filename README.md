@@ -6,6 +6,13 @@ and [Imad ElAouny](mailto:imad.elaouny@mydid.com), myDID SA
 Since DID are usually exposed to credentails verifiers and even simple authentication
 
 e.g. Issuer is a KYC processor, Alice and Bob
+               /-A
+          /---|
+     /---|     \-B
+    |    |
+----|     \-C
+    |
+     \-D
 
                  /--A--< Alice Derived Public key 1 , Claim UK
          /--AB--|     
