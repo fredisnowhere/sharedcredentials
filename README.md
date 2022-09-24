@@ -1,7 +1,7 @@
 # Enhancing Privacy with multiple DID and merkle trees of multiple (claim+Public Key) 
 
 by  [Frédéric Martin](mailto:frederic.martin@mydid.com), myDID SA  
-and [Imad ElAouny](mailto:imad.elaouny@mydid.com), myDID SA
+and [Imad El Aouny](mailto:imad.elaouny@mydid.com), myDID SA
 
 
 Since DID are usually exposed to credentails verifiers and even simple authentication
