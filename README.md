@@ -10,6 +10,7 @@ e.g. Issuer is a KYC processor, Alice and Bob
                ┌ --A--< Alice Derived Public key 1 , Claim UK
         ┌--AB--│     
         │      └--B--< Alice Derived Public key 2 , Claim UK
+        │              
                ┌ --A--< Alice Derived Public key 1 , Claim UK
         ┌--AB--│     
         │      └--B--< Alice Derived Public key 2 , Claim UK
