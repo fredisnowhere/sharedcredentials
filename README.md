@@ -6,7 +6,7 @@ and [Imad ElAouny](mailto:imad.elaouny@mydid.com), myDID SA
 Since DID are usually exposed to credentails verifiers and even simple authentication
 
 e.g. Issuer is a KYC processor, Alice and Bob
-
+<code>
                  /--A--< [ Alice Derived Public key 1 , Claim (UK) ]
          /--AB--|     
         |        \--B--< [ Alice Derived Public key 2 , Claim (UK) ]
@@ -14,7 +14,8 @@ e.g. Issuer is a KYC processor, Alice and Bob
         |        /--C--< [ Bob Derived Public key 1, Claim (US) ]
          \--CD--|
                  \--D--< [ Alice Derived Public key 3, Claim (UK) ] 
-
+</code>
+  
 Proponents (such as myself) of zero-knowledge proofs and their use with
 Verifiable Credentials often assert that the additional complications introduced
 by such cryptographic techniques are necessary because they provide a means to
