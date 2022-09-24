@@ -1,14 +1,14 @@
 # Enhancing Privacy with multiple DID and merkle trees of multiple (claim+Public Key) 
-```
+
 by  [Frédéric Martin](mailto:frederic.martin@mydid.com), myDID SA
 and [Imad ElAouny](mailto:imad.elaouny@mydid.com), myDID SA
-```
+
 
 Since DID are usually exposed to credentails verifiers and even simple authentication
 
 e.g. Issuer is a KYC processor checking citizenship 
 Alice is UK, Bob iS US, Carol is AU
-
+```
                                 ┌--A--< Alice Derived Public key 1 , Claim (UK)
                          ┌--AB--│     
                          │      └--B--< Alice Derived Public key 2 , Claim (UK)
@@ -24,6 +24,7 @@ Alice is UK, Bob iS US, Carol is AU
                          │      ┌--G--< Carol Derived Public key 2 , Claim (AU)
                          └--GH--│     
                                 └--H--< Alice Derived Public key 4 , Claim (UK)
+```
   
 Proponents (such as myself) of zero-knowledge proofs and their use with
 Verifiable Credentials often assert that the additional complications introduced
