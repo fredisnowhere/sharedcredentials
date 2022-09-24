@@ -16,7 +16,7 @@ Alice is UK, Bob iS US, Carol is AU
                 │        │      ┌--C--< Bob Derived Public key 1 , Claim (US)
                 │        └--CD--│     
                 │               └--D--< Alice Derived Public key 3 , Claim (UK)
-    --ABCDEFGH--┤  
+--ABCDEFGH--┤  
                 │               ┌--E--< Carol Derived Public key 1 , Claim (AU)
                 │        ┌--EF--│     
                 │        │      └--F--< Bob Derived Public key 2 , Claim (US)
