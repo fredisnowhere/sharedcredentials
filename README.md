@@ -1,4 +1,4 @@
-# Enhancing DID Privacy through shared merkle trees of DIDs and Claims with multiple possible proofs
+# Enhancing DID Privacy through shared merkle trees of DIDs and Claims with multiple presentation proofs
 
 by  [Frédéric Martin](mailto:frederic.martin@mydid.com), myDID SA  
 and [Imad El Aouny](mailto:imad.elaouny@mydid.com), myDID SA
@@ -25,7 +25,7 @@ Service owners can choose to do this willingly or they can be forced to do so an
 * ZKP/MPC based solutions can help sometimes but usually with some drawbacks -> not always well understood and well implemented, it may involve new constraints about client side cryptography support and new protection mecanism for the private key storage and usage -> it may involve other smart contracts, other parties...
 * As a wallet solution provider, we can incite users to create several "accounts / DIDs" to separate / isolate digital identities -> if it is not done transparently and nearly automatically, we doubt it will become reality (People can create several accounts on Metamask wallets for their own sake and they mostly don't)  
 
-## New* kind of "shared credential with multiple possible proofs"?
+## New* kind of "shared credential with multiple preentation proofs"?
 
 *Note: it may have been already proposed and even implemented somewhere we are not aware of  
   
@@ -88,10 +88,50 @@ Example above would have been then:
                      │      └──J──< Bob DDO1 (containing Bob Derived Public key 1) Claim (citizenship = UK)
 ```
 
+In this new model, credentials are still signed by the issuer as the credential "proof" part but:  
+* user DID (credentialSubect / id) is the root of the Merkle Tree of accumulated 
+* claim assertion is empty.
+
+### Selective Disclosure
+
 ### Selective Disclosure
 Advantages:
 - some "shared" claims can be publicly stored with less cost and less privacy concerns
 - some new "shared claims" can be added 
+
+{
+  "@context": [
+    "https://www.w3.org/2018/credentials/v1",
+    "https://www.w3.org/2018/credentials/examples/v1"
+  ],
+  "id": "http://example.edu/credentials/1872",
+  "type": ["VerifiableCredential", "**SharedCredential**"],
+  "issuer": "did:example:a45cadf51fa199664e6f31aa13b"
+  "issuanceDate": "2022-09-01T02:21:42Z",
+  "credentialSubject": {
+    "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
+    "**SharedCred**": {
+      "id": "**did:example:ABCDDECGH**",
+      "name": [{
+        "value": "Yearof Birth",
+        "lang": "en"
+      }, {
+        "value": "Année de naissance",
+        "lang": "fr"
+      }]
+    }
+  },
+  "proof": {
+    "type": "RsaSignature2018",
+    "created": "2022-09-01T04:14:03Z",
+    "proofPurpose": "assertionMethod",
+    "verificationMethod": "did:example:a45cadf51fa199664e6f31aa13b#key-1",
+    "jws": "eyJhbGciOiJSUzI1NiIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..TCYt5X
+      sITJX1CxPCT8yAV-TVkIEq_PbChOMqsLfRoPsnsgw5WEuts01mq-pQy7UJiN5mgRxD-WUc
+      X16dUEMGlv50aqzpqh4Qktb3rk-BuQy72IFLOqV0G_zS245-kronKb78cPN25DGlcTwLtj
+      PAYuNzVBAh4vGHSrQyHUdBBPM"
+  }
+}
 
 Drawbacks / to be discussed
 - AFAIK, not present yet inside any standards / specifications (it broke present W3C specifications)
