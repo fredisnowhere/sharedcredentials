@@ -7,7 +7,7 @@ RWOT XI, 2022, September
 
 ## DID Privacy concerns 
 
-We developed a DID+VC Wallet following W3C specifications and were not fully satisfied how Identifiers are used by default everywhere all the time and how easily different actors like credential verifiers (or even websites only using authentication) can match / correlate / link / trace users between services.
+We developed a DID+VC Wallet following W3C specifications and were not fully satisfied how Identifiers are used by default everywhere all the time and how easily different actors like credential verifiers (or even websites only using authentication) can match / correlate / link / trace users between services.  
 did:OWND:ID4242  
 * presented a verifiable credential about his age and nationality in order to bet on nop.net gambling website
 * presented two verifiable credentials about his name and diploma on qrs.com site in order to postulate  
