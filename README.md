@@ -1,4 +1,4 @@
-# Enhancing DID Privacy through shared merkle trees of DIDs and Claims with multiple presentation proofs
+# Enhancing DID Privacy through shared Credential using merkle trees of DIDs and Claims with multiple presentation proofs
 
 by  [Frédéric Martin](mailto:frederic.martin@mydid.com), myDID SA  
 and [Imad El Aouny](mailto:imad.elaouny@mydid.com), myDID SA
