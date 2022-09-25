@@ -34,6 +34,7 @@ We will be required to attribute several derived key pairs to each users: we pro
 Example assumptions:
 
 Issuer is a KYC processor, requested credentials are citizenship and year of birth.
+Issuer DID is did:example:155cadf51fa199664e6f31aa13b.
 Alice is from UK, Bob is from USA, Carol is from Australia.
 Year of birth for Alice is 1998 years old, Bob 1974 and Carol 1942.
 
@@ -88,8 +89,11 @@ With indirect DDO reference beginning of example above would be:
 
 
 In this new model, credentials are still signed by the issuer as the credential "proof" part but:  
-* user DID (credentialSubect / id) is the root of the Merkle Tree of accumulated (key pair, claim content) 
-* claim assertion is empty.
+* user DID (credentialSubect / id) is the root of the Merkle Tree of accumulated aasociation of derived public key (or DDO) and claim content
+* direct claim assertion is empty.
+
+if we take all example assumptions described above,  
+"Year of Birth" credential would be :  
 
 ```
 {
@@ -97,15 +101,15 @@ In this new model, credentials are still signed by the issuer as the credential 
     "https://www.w3.org/2018/credentials/v1",
     "https://www.w3.org/2018/credentials/examples/v1"
   ],
-  "id": "http://example.edu/credentials/1872",
+  "id": "http://example.edu/credentials/1121",
   "type": ["VerifiableCredential", "SharedCredential"],
-  "issuer": "did:example:a45cadf51fa199664e6f31aa13b"
+  "issuer": "did:example:155cadf51fa199664e6f31aa13b"
   "issuanceDate": "2022-09-01T02:21:42Z",
   "credentialSubject": {
     "id": "did:example:ABCDDECGH",
-    "SharedCred": {
+    "SharedCredential": {
         "name": [{
-        "value": "Yearof Birth",
+        "value": "Year of Birth",
         "lang": "en"
       }, {
         "value": "Année de naissance",
@@ -117,26 +121,76 @@ In this new model, credentials are still signed by the issuer as the credential 
     "type": "RsaSignature2018",
     "created": "2022-09-01T04:14:03Z",
     "proofPurpose": "assertionMethod",
-    "verificationMethod": "did:example:a45cadf51fa199664e6f31aa13b#key-1",
-    "jws": "eyJhbGciOiJSUzI1NiIsImI2NCI6ZmFsc2UsImNyaXQiOlsiYjY0Il19..TCYt5X
-      sITJX1CxPCT8yAV-TVkIEq_PbChOMqsLfRoPsnsgw5WEuts01mq-pQy7UJiN5mgRxD-WUc
-      X16dUEMGlv50aqzpqh4Qktb3rk-BuQy72IFLOqV0G_zS245-kronKb78cPN25DGlcTwLtj
-      PAYuNzVBAh4vGHSrQyHUdBBPM"
+    "verificationMethod": "did:example:155cadf51fa199664e6f31aa13b#key-1",
+    "jws": "eyJh[...]BBPM"
   }
 }
 ```
+... and "Citizenship" credential would be :  
 
-### Selective Disclosure
+```
+{
+  "@context": [
+    "https://www.w3.org/2018/credentials/v1",
+    "https://www.w3.org/2018/credentials/examples/v1"
+  ],
+  "id": "http://example.edu/credentials/1121",
+  "type": ["VerifiableCredential", "SharedCredential"],
+  "issuer": "did:example:155cadf51fa199664e6f31aa13b"
+  "issuanceDate": "2022-09-01T03:14:21Z",
+  "credentialSubject": {
+    "id": "did:example:IJKLMNOP",
+    "SharedCredential": {
+        "name": [{
+        "value": "Citizenship",
+        "lang": "en"
+      }, {
+        "value": "Citoyenneté",
+        "lang": "fr"
+      }]
+    }
+  },
+  "proof": {
+    "type": "RsaSignature2018",
+    "created": "2022-09-01T07:03:02Z",
+    "proofPurpose": "assertionMethod",
+    "verificationMethod": "did:example:155cadf51fa199664e6f31aa13b#key-1",
+    "jws": "imHm[...]CKZA"
+  }
+}
+```
+### Step by step, from credential request to presentation verification
 
-### Notes, "Work in Progress"
+User requests Verfiable Credential from Issuer
+
+* User sends a sublevel master public key to the issuer  
+* Issuer acumulates user requests (from other users)
+* Issuer derived public keys from users master public keys and create several association of user public key pairs and claim contents
+* Issuer uses accumulated data assocations to build a Merkle Tree
+* Issuer creates Verifiable Credential markes as issued "to" a "shared" DID referenced by Merkle Tree Root
+* Issuer sends the same credential reference to each user but with additional merkle proofs and associated key derivation paths
+* User stores 
+
+User sends Verifiable Presention to Verifier  
+  
+* User signs and sends Verifiable Credential as Verifiable Presentation to Verifier with an additional information: a claim content, a key derivation path and a merkle proof
+* Verifier uses credential and additionnal information to check if (Claim and derived public key) asociation is present inside the Merkle tree
+* Verifier checks original Issuer Credential signature
+* Verifier checks User Preentation signature
+
+### Notes ("Work in Progress")
 
 Advantages:
+- Enhanced Privacy
+  - a same credential content can be claimed/proven by a user through different keys and proofs
+  - a same credential can contain différent claims for different users
 - some "shared" claims can be publicly stored with less cost and less privacy concerns
-- some new "shared claims" can be added 
+- some new "shared claims" can be added to a bigger merkle by an issuer
 
 Drawbacks / to be discussed
-- AFAIK, not present yet inside any standards / specifications (it broke present W3C specifications)
-- If we want to advantage of an updated merkle tree for existing we have to keep a kind of opened communication channel between the past issuer and past user (Anyway, we think this kind of channel opportunity -that can be closed/ignore on the user side at any time- is important to create (we are working on it)
+- AFAWK, not present yet inside any standards / specifications
+- If we want to take advantage of an updated growing merkle tree for existing we have to inform previous users about the update, meaning keeping a kind of opened communication channel between Issuers and their previous users (Anyway, we think this kind of channel opportunity i simportant -users should be able to closed/ignore these channels on their user side at any time- is important to create so we are working on it)
 - Issuers have to send each credential with additional information: a group of Merlkle proofs (note: it can be encrypted with the first derived public key)
+- Users have to send each credential with additional information: a Merlkle proof
 
 
