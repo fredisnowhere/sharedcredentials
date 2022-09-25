@@ -191,5 +191,5 @@ if we take all example assumptions described above,
 **Drawbacks / to be discussed**
 - AFAWK, not present yet inside any standards / specifications
 - If we want to take advantage of an updated growing Merkle tree for existing users, we have to inform previous users about the update, meaning keeping a kind of opened communication channel between Issuers and their previous users (Anyway, we think this kind of channel opportunity between issuers and users is important -users should be able to closed/ignore these channels on their user side at any time- and we are working on it)
-- Issuers have to send each credential with additional information: a group of Merlkle proofs (note: it can be encrypted with the first derived public key)
+- Issuers have to send each credential with additional information: a group of Merkle proofs (note: it can be encrypted with the first derived public key)
 - Users have to send each presentation with additional information: Claim content, public key and Merkle proof
