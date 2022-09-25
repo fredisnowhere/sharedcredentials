@@ -181,14 +181,14 @@ if we take all example assumptions described above,
 
 ### Notes (Work in Progress)
 
-Advantages:
+**Advantages:**
 - Enhanced DID Privacy
   - a same credential content can be claimed/proven by a user through different keys and proofs
   - a same credential can contain different claims for different users
 - some "shared" claims can be publicly stored with less cost and less privacy concerns
 - some new "shared claims" can be added to a bigger Merkle by an issuer
 
-Drawbacks / to be discussed
+**Drawbacks / to be discussed**
 - AFAWK, not present yet inside any standards / specifications
 - If we want to take advantage of an updated growing Merkle tree for existing users, we have to inform previous users about the update, meaning keeping a kind of opened communication channel between Issuers and their previous users (Anyway, we think this kind of channel opportunity between issuers and users is important -users should be able to closed/ignore these channels on their user side at any time- and we are working on it)
 - Issuers have to send each credential with additional information: a group of Merlkle proofs (note: it can be encrypted with the first derived public key)
