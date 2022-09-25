@@ -160,7 +160,7 @@ if we take all example assumptions described above,
   }
 }
 ```
-### Step by step, from credential request to presentation verification
+## Step by step, from credential request to presentation verification
 
 **User requests Verifiable Credential from Issuer**
 
@@ -179,7 +179,7 @@ if we take all example assumptions described above,
 * Verifier checks original Issuer Credential signature
 * Verifier checks User Presentation signature
 
-### Notes (Work in Progress)
+## Notes (Work in Progress)
 
 **Advantages:**
 - Enhanced DID Privacy
