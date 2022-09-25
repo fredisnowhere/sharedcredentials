@@ -97,7 +97,7 @@ In this new model, credentials are still signed by the issuer as the credential 
 Advantages:
 - some "shared" claims can be publicly stored with less cost and less privacy concerns
 - some new "shared claims" can be added 
-
+```
 {
   "@context": [
     "https://www.w3.org/2018/credentials/v1",
@@ -131,7 +131,7 @@ Advantages:
       PAYuNzVBAh4vGHSrQyHUdBBPM"
   }
 }
-
+```
 Drawbacks / to be discussed
 - AFAIK, not present yet inside any standards / specifications (it broke present W3C specifications)
 - If we want to advantage of an updated merkle tree for existing we have to keep a kind of opened communication channel between the past issuer and past user (Anyway, we think this kind of channel opportunity -that can be closed/ignore on the user side at any time- is important to create (we are working on it)
