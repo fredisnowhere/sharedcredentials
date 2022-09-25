@@ -80,8 +80,7 @@ It could be useful if you are still required to at least have the same key / DDO
 
 We chose above here to directly reference users public derived keys but it could be a DDO (DID Document) reference containing a derived key  
 (assuming having multiple DID Documents is not too expensive and by the way credentials costs are largely reduced here)
-
-Example above would have been then:
+With indirect DDO reference beginning of example above would be:
 
              ┌──I──< Carol DDO1 (containing Carol Derived Public key 1), Claim (citizenship = UK)
       ┌──IJ──┤     
