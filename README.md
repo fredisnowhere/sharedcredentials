@@ -1,4 +1,4 @@
-# Enhancing Privacy with multiple DID and merkle trees of multiple (claim+Public Key) 
+# Enhancing Privacy with merkle trees as shared DID and shared credentials with multiple personal proofs
 
 by  [Frédéric Martin](mailto:frederic.martin@mydid.com), myDID SA  
 and [Imad El Aouny](mailto:imad.elaouny@mydid.com), myDID SA
@@ -24,17 +24,19 @@ Service owners can choose to do this willingly or they can be forced to do so an
 * ZKP/MPC based solutions can help sometimes but usually with some drawbacks -> not always well understood and well implemented, it may involve new constraints about client side cryptography support and new protection mecanism for the private key storage and usage -> it may involve other smart contracts, other parties...
 * As a wallet solution provider, we can incite users to create several "accounts / DIDs" to separate / isolate digital identities -> if it is not done transparently and nearly automatically, we doubt it will become reality (People can create several accounts on Metamask wallets for their own sake and they mostly don't)  
 
-## Proposition*: New kind of "shared credential with several possibles proofs"
+## New* kind of "shared credential with several possibles proofs"?
 
 *Note: it may have been already proposed and even implemented somewhere we are not aware of
 
-We will be required to attribute several derived key to each users, 
+We will be required to attribute several derived key pairs to each users: we probably should adopt Hierarchical Deterministic wallets standards ([BIP32](https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki), [BIP44](https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki) and "extensions" ([SLIP44](https://github.com/satoshilabs/slips/blob/master/slip-0044.md).
 
 Example assumptions:
 
 Alice is from UK, Bob is from USA, Carol is from AUstralia.
 Year of birth for Alice is 1998 years old, Bob 1974 and Carol 1942.
-Issuer is a KYC processor, given credentials are here user citizenship and year of birth.
+Issuer is a KYC processor, requested credentials here user citizenship and year of birth.
+
+
 
 This are Merle Trees: ──A── means hash of associated data, ──AB── means hash of (hash of A + hash of B) and so on.
 
@@ -69,18 +71,30 @@ This are Merle Trees: ──A── means hash of associated data, ──AB─�
             │        ┌──MN──┤     
             │        │      └──N──< Alice Derived Public key 1, Claim (citizenship = US)
             └──MNOP──┤  
-                     │      ┌──O──< Carol  Derived Public key 50, Claim (citizenship = AU)
+                     │      ┌──O──< Carol Derived Public key 50, Claim (citizenship = AU)
                      └──OP──┤     
                             └──P──< Bob Derived Public key 86, Claim (citizenship = UK)
 
 ```
-  
+
+```
+Note : We chose above here to directly reference users public derived keys but it could be a DDO reference containing a derived key  
+Example above would have been then:
+
+                            ┌──A──< Alice DDO 1 (DDO 1 contains derived Alice Public key 1), Claim (YoB = 1998)
+                     ┌──AB──┤     
+                     │      └──B──< Alice DDO 2 (DDO 1 contains derived Alice Public key 1), Claim (YoB = 1998)
+```
+
+
+(supposing creating DDO
 
 ### Selective Disclosure
 Advantages:
 - some "shared" claims can be publicly stored with less cost and less privacy concerns
 
 Drawbacks:
-- AFAIK, not present yet inside any standards / specifications
+- AFAIK, not present yet inside any standards / specifications (it broke present W3C specifications)
 - Issuers have more work to do
 - Issuers have to send each credential with additional information: a group of Merlkle proofs
+- Verifier 
