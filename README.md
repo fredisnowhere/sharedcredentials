@@ -83,9 +83,9 @@ We chose above here to directly reference users public derived keys but it could
 
 Example above would have been then:
 
-                  ┌──I──< Carol DDO1 (containing Carol Derived Public key 1), Claim (citizenship = UK)
-           ┌──IJ──┤     
-           │      └──J──< Bob DDO1 (containing Bob Derived Public key 1) Claim (citizenship = UK)
+             ┌──I──< Carol DDO1 (containing Carol Derived Public key 1), Claim (citizenship = UK)
+      ┌──IJ──┤     
+      │      └──J──< Bob DDO1 (containing Bob Derived Public key 1) Claim (citizenship = UK)
 
 
 In this new model, credentials are still signed by the issuer as the credential "proof" part but:  
