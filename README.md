@@ -59,7 +59,7 @@ These are Merle Trees: ──A── means (hash of associated data), ──AB�
 
 ```
 ```
-                            ┌──I──< Carol Derived Public key 1, Claim (citizenship = UK)
+                            ┌──I──< Carol Derived Public key 1, Claim (citizenship = AU)
                      ┌──IJ──┤     
                      │      └──J──< Bob Derived Public key 1, Claim (citizenship = US)
             ┌──IJKL──┤  
