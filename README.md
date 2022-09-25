@@ -88,15 +88,9 @@ With indirect DDO reference beginning of example above would be:
 
 
 In this new model, credentials are still signed by the issuer as the credential "proof" part but:  
-* user DID (credentialSubect / id) is the root of the Merkle Tree of accumulated 
+* user DID (credentialSubect / id) is the root of the Merkle Tree of accumulated (key pair, claim content) 
 * claim assertion is empty.
 
-### Selective Disclosure
-
-### Selective Disclosure
-Advantages:
-- some "shared" claims can be publicly stored with less cost and less privacy concerns
-- some new "shared claims" can be added 
 ```
 {
   "@context": [
@@ -104,14 +98,13 @@ Advantages:
     "https://www.w3.org/2018/credentials/examples/v1"
   ],
   "id": "http://example.edu/credentials/1872",
-  "type": ["VerifiableCredential", "<font color="red">SharedCredential</font>"],
+  "type": ["VerifiableCredential", "SharedCredential"],
   "issuer": "did:example:a45cadf51fa199664e6f31aa13b"
   "issuanceDate": "2022-09-01T02:21:42Z",
   "credentialSubject": {
-    "id": "did:example:ebfeb1f712ebc6f1c276e12ec21",
-    "**SharedCred**": {
-      "id": "**did:example:ABCDDECGH**",
-      "name": [{
+    "id": "did:example:ABCDDECGH",
+    "SharedCred": {
+        "name": [{
         "value": "Yearof Birth",
         "lang": "en"
       }, {
@@ -132,11 +125,18 @@ Advantages:
   }
 }
 ```
+
+### Selective Disclosure
+
+### Notes, "Work in Progress"
+
+Advantages:
+- some "shared" claims can be publicly stored with less cost and less privacy concerns
+- some new "shared claims" can be added 
+
 Drawbacks / to be discussed
 - AFAIK, not present yet inside any standards / specifications (it broke present W3C specifications)
 - If we want to advantage of an updated merkle tree for existing we have to keep a kind of opened communication channel between the past issuer and past user (Anyway, we think this kind of channel opportunity -that can be closed/ignore on the user side at any time- is important to create (we are working on it)
 - Issuers have to send each credential with additional information: a group of Merlkle proofs (note: it can be encrypted with the first derived public key)
-- Verifier 
 
-### Ideas / recmmandations
 
