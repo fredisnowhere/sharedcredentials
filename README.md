@@ -30,17 +30,13 @@ Note: it may have been already proposed and even implemented somewhere we are no
 
 We will be required to attribute several derived key
 
-Example assumptions :
+Example assumptions:
 
 Alice is from UK, Bob is from USA, Carol is from AUstralia.
 Year of birth for Alice is 1998 years old, Bob 1974 and Carol 1942.
 Issuer is a KYC processor, given credentials are here user citizenship and year of birth.
 
-This are Merle Trees:
-──A── means hash of associated data
-──AB── means hash of (hash of A + hash of B)
-and so on.
-
+This are Merle Trees: ──A── means hash of associated data, ──AB── means hash of (hash of A + hash of B) and so on.
 
 ```
                             ┌──A──< Alice Derived Public key 1, Claim (YoB = 1998)
