@@ -31,12 +31,12 @@ Service owners can choose to do this willingly or they can be forced to do so an
   
 We will be required to attribute several derived key pairs to each users: we probably should adopt Hierarchical Deterministic wallets standards like [BIP32](https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki), [BIP44](https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki) and "extensions" [SLIP44](https://github.com/satoshilabs/slips/blob/master/slip-0044.md).
 
-Example assumptions:
+**Example assumptions:**
 
-Issuer is a KYC processor, requested credentials are citizenship and year of birth (YoB).
-Issuer DID is did:example:155cadf51fa199664e6f31aa13b.
-Alice is from UK, Bob is from USA, Carol is from Australia.
-Year of birth for Alice is 1998 years old, Bob 1974 and Carol 1942.
+- Issuer is a KYC processor, requested credentials are citizenship and year of birth (YoB).
+- Issuer DID is did:example:155cadf51fa199664e6f31aa13b.
+- Alice is from UK, Bob is from USA, Carol is from Australia.
+- Year of birth for Alice is 1998 years old, Bob 1974 and Carol 1942.
 
 These are Merle Trees: ──A── means (hash of associated data), ──AB── means (hash of (hash of A + hash of B)) and so on.
 
@@ -162,7 +162,7 @@ if we take all example assumptions described above,
 ```
 ### Step by step, from credential request to presentation verification
 
-User requests Verifiable Credential from Issuer
+**User requests Verifiable Credential from Issuer**
 
 * User sends a sublevel master public key to the issuer  
 * Issuer accumulates user requests (from other users)
@@ -172,7 +172,7 @@ User requests Verifiable Credential from Issuer
 * Issuer sends the same shared credential reference to each user but with additional Merkle proofs and associated key derivation paths
 * User wallet stores shared Credential references with additional info (key derivation paths, Merkle proofs and claims)
 
-User sends Verifiable Presentation to Verifier  
+**User sends Verifiable Presentation to Verifier**
   
 * User signs and sends Verifiable Credential as Verifiable Presentation to Verifier with an additional information: a claim content, a public key and associated Merkle proof
 * Verifier uses credential and additional information to check if (Claim and derived public key) association is present inside the Merkle tree
@@ -190,6 +190,6 @@ Advantages:
 
 Drawbacks / to be discussed
 - AFAWK, not present yet inside any standards / specifications
-- If we want to take advantage of an updated growing Merkle tree for existing we have to inform previous users about the update, meaning keeping a kind of opened communication channel between Issuers and their previous users (Anyway, we think this kind of channel opportunity is important -users should be able to closed/ignore these channels on their user side at any time- is important to create so we are working on it)
+- If we want to take advantage of an updated growing Merkle tree for existing users, we have to inform previous users about the update, meaning keeping a kind of opened communication channel between Issuers and their previous users (Anyway, we think this kind of channel opportunity between issuers and users is important -users should be able to closed/ignore these channels on their user side at any time- and we are working on it)
 - Issuers have to send each credential with additional information: a group of Merlkle proofs (note: it can be encrypted with the first derived public key)
 - Users have to send each presentation with additional information: Claim content, public key and Merkle proof
