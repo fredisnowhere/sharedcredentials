@@ -11,24 +11,24 @@ We developed a DID+VC Wallet following W3C specifications and were not fully sat
 did:OWND:ID4242
 * presented a verifiable credential about his age and nationality in order to bet on nop.net gambling website
 * presented two verifiable credentials about his name and diploma on qrs.com site in order to postulate  
-* presented a verifiable credential about his age and home address on tuv.com in order to participate to buy alcohol online
+* presented a verifiable credential about his age and home address on tuv.com in order to buy alcohol online
 * only used his DID wallet just to be authenticated, no credential asked, during registration on xyz.io metaverse website where he chose a fancy avatar...  
-  
+* ...  
 Websites databases can accumulate data to enable correlation between sensible personal information / attributes through stored DID
 Service owners can choose to do this willingly or they can be forced to do so and or even simply ignore it can be done behind their backs (stolen/leaked databases).  
 
-## Existing / potential solutions 
+## Existing potential solutions 
 
 * Verifiers, website/application owners can avoid to store DIDs -> no guarantee, not always so easy -> it probably won't happen.
 * Trusted Third Partys can be involved to anonymize identity and proof -> aren't we supposed to be able to get rif of TTP?
 * ZKP/MPC based solutions can help sometimes but usually with some drawbacks -> not always well understood and well implemented, it may involve new constraints about client side cryptography support and new protection mecanism for the private key storage and usage -> it may involve other smart contracts, other parties...
 * As a wallet solution provider, we can incite users to create several "accounts / DIDs" to separate / isolate digital identities -> if it is not done transparently and nearly automatically, we doubt it will become reality (People can create several accounts on Metamask wallets for their own sake and they mostly don't)  
 
-## New kind of "shared credential with several possibles proofs"
+## Proposition*: New kind of "shared credential with several possibles proofs"
 
-Note: it may have been already proposed and even implemented somewhere we are not aware of
+*Note: it may have been already proposed and even implemented somewhere we are not aware of
 
-We will be required to attribute several derived key
+We will be required to attribute several derived key to each users, 
 
 Example assumptions:
 
