@@ -1,4 +1,4 @@
-# Enhancing DID Privacy through shared Credential using merkle trees of DIDs and Claims with multiple presentation proofs
+# Enhancing DID Privacy through shared Credentials using merkle trees of DIDs and Claims with multiple presentation proofs
 
 by  [Frédéric Martin](mailto:frederic.martin@mydid.com), myDID SA  
 and [Imad El Aouny](mailto:imad.elaouny@mydid.com), myDID SA
@@ -192,5 +192,3 @@ Drawbacks / to be discussed
 - If we want to take advantage of an updated growing merkle tree for existing we have to inform previous users about the update, meaning keeping a kind of opened communication channel between Issuers and their previous users (Anyway, we think this kind of channel opportunity i simportant -users should be able to closed/ignore these channels on their user side at any time- is important to create so we are working on it)
 - Issuers have to send each credential with additional information: a group of Merlkle proofs (note: it can be encrypted with the first derived public key)
 - Users have to send each credential with additional information: a Merlkle proof
-
-
