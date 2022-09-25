@@ -33,7 +33,7 @@ We will be required to attribute several derived key pairs to each users: we pro
 
 Example assumptions:
 
-Issuer is a KYC processor, requested credentials are citizenship and year of birth.
+Issuer is a KYC processor, requested credentials are citizenship and year of birth (YoB).
 Issuer DID is did:example:155cadf51fa199664e6f31aa13b.
 Alice is from UK, Bob is from USA, Carol is from Australia.
 Year of birth for Alice is 1998 years old, Bob 1974 and Carol 1942.
@@ -61,20 +61,19 @@ These are Merle Trees: ──A── means (hash of associated data), ──AB�
 ```
                             ┌──I──< Carol Derived Public key 1, Claim (citizenship = UK)
                      ┌──IJ──┤     
-                     │      └──J──< Bob Derived Public key 1, Claim (citizenship = UK)
+                     │      └──J──< Bob Derived Public key 1, Claim (citizenship = US)
             ┌──IJKL──┤  
             │        │      ┌──K──< Bob Derived Public key 2, Claim (citizenship = US)
             │        └──KL──┤     
-            │               └──L──< Carol Derived Public key 2, Claim (citizenship = UK)
+            │               └──L──< Carol Derived Public key 2, Claim (citizenship = AU)
 ──IJKLMNOP──┤  
-            │               ┌──M──< Alice Derived Public key 1, Claim (citizenship = AU)
+            │               ┌──M──< Alice Derived Public key 1, Claim (citizenship = UK)
             │        ┌──MN──┤     
-            │        │      └──N──< Alice Derived Public key 2, Claim (citizenship = US)
+            │        │      └──N──< Alice Derived Public key 2, Claim (citizenship = UK)
             └──MNOP──┤  
                      │      ┌──O──< Carol Derived Public key 50, Claim (citizenship = AU)
                      └──OP──┤     
-                            └──P──< Bob Derived Public key 87, Claim (citizenship = UK)
-
+                            └──P──< Bob Derived Public key 87, Claim (citizenship = US)
 ```
 As shown here, the two Merkle trees for the two credentials contains a few derived keys  
 It could be useful if you are still required to at least have the same key / DDO during the presentation of several credentials.
@@ -83,9 +82,9 @@ We chose above here to directly reference users public derived keys but it could
 (Assuming having multiple DID Documents is not too expensive and by the way credentials costs are largely reduced here)
 With indirect DDO reference beginning of example above would be:
 
-             ┌──I──< Carol DDO1 (containing Carol Derived Public key 1), Claim (citizenship = UK)
+             ┌──I──< Carol DDO 1 (containing Carol Derived Public key 1), Claim (citizenship = UK)
       ┌──IJ──┤     
-      │      └──J──< Bob DDO1 (containing Bob Derived Public key 1) Claim (citizenship = UK)
+      │      └──J──< Bob DDO 1 (containing Bob Derived Public key 1) Claim (citizenship = US)
 
 
 In this new model, credentials are still signed by the issuer as the credential "proof" part but:  
