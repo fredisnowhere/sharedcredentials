@@ -104,7 +104,7 @@ Advantages:
     "https://www.w3.org/2018/credentials/examples/v1"
   ],
   "id": "http://example.edu/credentials/1872",
-  "type": ["VerifiableCredential", "**SharedCredential**"],
+  "type": ["VerifiableCredential", "__SharedCredential__"],
   "issuer": "did:example:a45cadf51fa199664e6f31aa13b"
   "issuanceDate": "2022-09-01T02:21:42Z",
   "credentialSubject": {
